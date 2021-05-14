@@ -5,6 +5,63 @@
     <title>Title</title>
 </head>
 <body>
-
+<h1>技术只能称之为技术，披上漂亮的外衣才能称为<span style="color: red">商业</span>。</h1>
+    <div class="box" id="box" >
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+<script>
+    var spans=document.querySelectorAll('div.box span');
+    cur();
+    setInterval(cur, 1000);
+    function cur() {
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        spans[2].style.transform="rotate("+h*30+"deg)";
+        spans[1].style.transform="rotate("+m*6+"deg)";
+        spans[0].style.transform="rotate("+s*6+"deg)";
+    }
+</script>
 </body>
+<style>
+    div.box{
+        width: 620px;
+        height: 620px;
+        background: url("img/time.jpg") no-repeat;
+        background-size: 100%;
+        margin: 20px auto;
+        position: relative;
+    }
+    div.box span{
+        position: absolute;
+
+    }
+    div.box span:nth-child(3){
+        width: 58px;
+        height: 208px;
+        background: url("img/time_1.png") no-repeat -8px -44px;
+        left: calc(50% - 29px);
+        top: 130px;
+        transform-origin: center 174px;
+    }
+    div.box span:nth-child(2){
+        width: 32px;
+        height: 228px;
+        background: url("img/time_1.png") no-repeat -72px -10px;
+        left: calc(50% - 16px);
+        top: 97px;
+        transform-origin: center 205px;
+    }
+    div.box span:nth-child(1){
+        width: 14px;
+        height: 238px;
+        background: url("img/time_1.png") no-repeat -131px -0px;
+        left: calc(50% - 8px);
+        top: 106px;
+        transform-origin: center 198px;
+    }
+</style>
 </html>
