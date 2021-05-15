@@ -39,8 +39,35 @@
 <style>
     span {
         animation:shork 2s infinite;
+        -moz-animation:shork 2s infinite; /* Firefox */
+        -webkit-animation:shork 2s infinite; /* Safari and Chrome */
+        -o-animation:shork 2s infinite; /* Opera */
     }
     @keyframes shork {
+        0% {padding-left: 0%}
+        5% {padding-left: 2%}
+        25% {padding-left: 10%}
+        50% {padding-left: 0%}
+        75% {padding-left: 10%}
+        100% {padding-left: 0%}
+    }
+    @-moz-keyframes shork {
+        0% {padding-left: 0%}
+        5% {padding-left: 2%}
+        25% {padding-left: 10%}
+        50% {padding-left: 0%}
+        75% {padding-left: 10%}
+        100% {padding-left: 0%}
+    }
+    @-webkit-keyframes shork {
+        0% {padding-left: 0%}
+        5% {padding-left: 2%}
+        25% {padding-left: 10%}
+        50% {padding-left: 0%}
+        75% {padding-left: 10%}
+        100% {padding-left: 0%}
+    }
+    @-o-keyframes shork {
         0% {padding-left: 0%}
         5% {padding-left: 2%}
         25% {padding-left: 10%}
