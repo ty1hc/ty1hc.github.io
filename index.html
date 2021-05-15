@@ -12,17 +12,18 @@
         <span></span>
     </div>
 <script>
-    var spans=document.querySelectorAll('div.box span');
+    const spans = document.querySelectorAll('div.box span');
     cur();
-    setInterval(cur, 1000);
+    setInterval(cur, 10);
     function cur() {
-        var now = new Date();
-        var h = now.getHours();
-        var m = now.getMinutes();
-        var s = now.getSeconds();
-        spans[2].style.transform="rotate("+h*30+"deg)";
-        spans[1].style.transform="rotate("+m*6+"deg)";
-        spans[0].style.transform="rotate("+s*6+"deg)";
+        const now = new Date();
+        const h = now.getHours();
+        const m = now.getMinutes();
+        const s = now.getSeconds();
+        let number = new Date().getTime()%1000;
+        spans[2].style.transform="rotate("+(h*30+m/2)+"deg)";
+        spans[1].style.transform="rotate("+(m*6+s/10+number/10000)+"deg)";
+        spans[0].style.transform="rotate("+(s*6+number*6/1000)+"deg)";
     }
 </script>
 </body>
