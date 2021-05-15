@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3><span class="colorful">忙碌陷阱</span></h3>
+<table>
+    <tr>
+        <td><span class="lowBattery">技术人,</span></td>
+        <td>花掉积蓄的任何一丝精力脑力创造力求得心安；</td>
+    </tr>
+    <tr>
+        <td><span class="highBattery">房屋销售，</span></td>
+        <td>保持饱满精力状态判断力，准备完美应对随时发生的订单。</td>
+    </tr>
+</table>
+<script>
+
+    /*let db;
+    let objectStore;
+    let request = window.indexedDB.open("","");
+    request.onerror = function (event) {}
+    request.onsuccess = function (event) {
+        db = request.result//可以拿到数据库对象
+    }
+    //如果指定的版本号，大于数据库的实际版本号，就会发生数据库升级事件upgradeneeded
+    request.onupgradeneeded = function (event) {
+        db = event.target.result;
+        if (!db.objectStoreNames.contains('person')) {//判断是否存在
+            objectStore = db.createObjectStore('person', { keyPath: 'id' });
+//自动生成主键db.createObjectStore(
+//  'person',
+//  { autoIncrement: true }
+//);
+        }
+        //新建索引，参数索引名称、索引所在的属性、配置对象
+        objectStore.createIndex('email', 'email', { unique: true });
+    }*/
+</script>
+</body>
+<style>
+    .colorful{
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 22px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image:
+                linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+                linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+                linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    }
+    .lowBattery{
+        background-image: linear-gradient(#b3e19d, #b3e19d, #d58383, #22ac22, #22ac22);
+        font-weight: bold;
+        font-size: 22px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    /*.highBattery{*/
+    /*    background-image: linear-gradient(#22cb22, #33ee33, #56f507);*/
+    /*    font-weight: bold;*/
+    /*    font-size: 22px;*/
+    /*    -webkit-background-clip: text;*/
+    /*    -webkit-text-fill-color: transparent;*/
+    /*}*/
+    .highBattery{
+        font-weight: bold;
+        font-size: 22px;
+        color: #14b114;
+    }
+</style>
+</html>
