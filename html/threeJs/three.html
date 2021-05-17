@@ -13,17 +13,43 @@
 <script src="../../js/three.js"></script>
 <script>
     // Our Javascript will go here.
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / (window.innerHeight-80), 0.1, 1000 );
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / (window.innerHeight - 80), 0.1, 1000);
 
-    var renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight-80 );
-    renderer.setClearColor(0xffffff,1.0);
+    // renderer.setClearColor(0XFFFFFF,1.0);
+    renderer.setClearAlpha(0.0);
     document.body.appendChild( renderer.domElement );
 
-    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    var cube = new THREE.Mesh( geometry, material );
+    sceneBG = new THREE.Scene();
+    const materialColor = new THREE.MeshBasicMaterial({
+        map: THREE.ImageUtils.loadTexture("../../img/bigBack/mountainGuitar.jpg"),
+        depthTest: false
+    });
+    materialColor.map.wrapS;
+    materialColor.map.wrapT;
+    console.log(materialColor);
+    const bgPlane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), materialColor);
+    bgPlane.position.z = -100;
+    bgPlane.scale.set(window.innerWidth/4-100 , (window.innerHeight - 80)/4-100, 1);
+    // sceneBG.add(bgPlane);
+    // cameraBG = new THREE.OrthographicCamera(-window.innerWidth, window.innerWidth, window.innerHeight, -window.innerHeight, -10000, 10000);
+    // cameraBG.position.z = 50;
+    // const effectCopy = new THREE.ShaderPass(THREE.FXAAShader);
+    // effectCopy.uniforms['resolution'].value.set(1 / window.innerWidth, 1 / window.innerHeight);
+    // effectCopy.renderToScreen = true;
+    // composer = new THREE.EffectComposer(renderer);
+    // composer.renderTarget1.stencilBuffer = true;
+    // composer.renderTarget2.stencilBuffer = true;
+    // composer.addPass(bgPass);
+    // composer.addPass(Pass);
+    // composer.addPass(effectCopy);
+    scene.add(bgPlane)
+
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    const cube = new THREE.Mesh(geometry, material);
     scene.add( cube );
 
     camera.position.z = 5;
@@ -35,7 +61,7 @@
         renderer.render( scene, camera );
     }
     animate();
-</script>
+    </script>
 </body>
 <style>
     .dance {

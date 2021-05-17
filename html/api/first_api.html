@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function onClick() {
+        alert("click")
+        let ajax = $.ajax(function () {url:"http://127.0.0.1:8080/aa"});
+        $("#random").html(ajax.responseText)
+    }
+</script>
+<body>
+    <div><span id="random">测试连接后台返回随机数</span></div>
+    <button onclick="onClick()"></button>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+</body>
+</html>
