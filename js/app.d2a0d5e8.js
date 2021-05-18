@@ -235,7 +235,7 @@
     }, "85ec": function (e, t, n) {
     }, "9ff7": function (e, t, n) {
     }, c296: function (e, t, n) {
-        e.exports = n.p + "./ty1hc.github.io/html/threeJs/vue/img/pawnshop.801d40e4.jpg"
+        e.exports = n.p + "./ty1hc.github.io/img/pawnshop.801d40e4.jpg"
     }
 });
 //# sourceMappingURL=app.d2a0d5e8.js.map
