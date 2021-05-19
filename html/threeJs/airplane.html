@@ -8,6 +8,7 @@
 <div id="world"></div>
 
 <script type="text/javascript" src="../../js/three.js"></script>
+<script src="https://unpkg.com/vconsole/dist/vconsole.min.js"></script>
 <script>
 
     var Colors = {
@@ -30,11 +31,12 @@
         createSky();
         //添加监听器
         document.addEventListener('mousemove', handleMouseMove, false);
-        // document.addEventListener('touchstart',);
-        // document.addEventListener('touchmove', )
+        document.addEventListener('touchmove',handleMouseMove, false);
         //https://www.cnblogs.com/yangmengsheng/p/5973487.html
         // 调用循环函数，在每帧更新对象的位置和渲染场景
         loop();
+
+        var vConsole = new VConsole();
     }
     var scene, camera, fieldOfView, aspectRatio, nearPlane,
         farPlane, HEIGHT, WIDTH, renderer, container;

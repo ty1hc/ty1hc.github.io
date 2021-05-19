@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="map"></div>
+
+<script src="../../js/ol.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/proj4js/2.7.2/proj4.min.js"></script>
+<script>
+    proj4.defs("EPSG:4610","+proj=longlat +a=6378140 +b=6356755.288157528 +no_defs");
+
+    let transform = ol.proj.transform([1.1,1.2], 'EPSG:4610', 'EPSG:4326');
+    console.log(transform)
+</script>
+</body>
+</html>
