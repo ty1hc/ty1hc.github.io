@@ -9,6 +9,7 @@
 
 <script type="text/javascript" src="../../js/three.js"></script>
 <script>
+
     var Colors = {
         red:0xf25346,
         white:0xd8d0d1,
@@ -29,6 +30,9 @@
         createSky();
         //添加监听器
         document.addEventListener('mousemove', handleMouseMove, false);
+        // document.addEventListener('touchstart',);
+        // document.addEventListener('touchmove', )
+        //https://www.cnblogs.com/yangmengsheng/p/5973487.html
         // 调用循环函数，在每帧更新对象的位置和渲染场景
         loop();
     }
@@ -93,17 +97,19 @@
         container.appendChild(renderer.domElement);
 
         // 监听屏幕，缩放屏幕更新相机和渲染器的尺寸
-        window.addEventListener('resize', handleWindowResize, false);
+        // window.addEventListener('resize', handleWindowResize, false);
     }
-    function handleWindowResize() {
-        // 更新渲染器的高度和宽度以及相机的纵横比
-        HEIGHT = window.innerHeight;
-        WIDTH = window.innerWidth;
-        renderer.setSize(WIDTH, HEIGHT);
-        camera.aspect = WIDTH / HEIGHT;
-        camera.updateProjectionMatrix();
-    }
-    var hemisphereLight, shadowLight;
+    // function handleWindowResize() {
+    //     // 更新渲染器的高度和宽度以及相机的纵横比
+    //     HEIGHT = window.innerHeight;
+    //     WIDTH = window.innerWidth;
+    //     renderer.setSize(WIDTH, HEIGHT);
+    //     camera.aspect = WIDTH / HEIGHT;
+    //     camera.updateProjectionMatrix();
+    // }
+
+    let hemisphereLight, shadowLight;
+
     function createLights() {
         // 半球光就是渐变的光；
         // 第一个参数是天空的颜色，第二个参数是地上的颜色，第三个参数是光源的强度

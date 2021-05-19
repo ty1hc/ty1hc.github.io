@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let database = openDatabase("student", "1.0", "学生表", 1024*1024, function () { });
+    if(!database){
+        alert("数据库创建失败")
+    } else {
+        alert("数据库创建成功")
+    }
+    database.transaction(function (tx) {
+        tx.executeSql(
+            "create table if not exists stu(id REAL UNIQUE, name TEXT)",[],
+            function (tx, result) {
+                alert("创建stu表成功")
+            },
+            function (tx, error) {
+                alert("创建stu表失败")
+            }
+        )
+    })
+</script>
+</body>
+</html>
