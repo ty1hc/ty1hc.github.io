@@ -17,9 +17,15 @@
     <span style="font-family: a372;font-size: 30px"> 雨汐镇·当铺</span>
 </div>
 <img src="../../img/pawnshop/pawnshop.jpg">
-<div style="font-family: a372;text-align: center;width: 1276px;">这里会有一个3D空间，实现·当铺·</div>
-<div style="font-family: a372;text-align: center;width: 1276px;">有点烦，几何形状好像要一点一点地画。。。。。。。找找有没有更好的方法</div>
-<div id="world" style="border: 2px solid #f56c6c;width: 1276px; height: 716px;" ></div>
+<!--<div style="font-family: a372;text-align: center;width: 1276px;">这里会有一个3D空间，实现·当铺·</div>-->
+<!--<div style="font-family: a372;text-align: center;width: 1276px;">有点烦，几何形状好像要一点一点地画。。。。。。。找找有没有更好的方法</div>-->
+<div style="float: left; position: absolute;font-family: a372;text-align: left;word-break: break-all; width: 400px; padding-left: 5px">
+    <p>有点细致，几何形状好像要一点一点地画。。。。。找找有没有更好的方法</p>
+    <p>工作开始忙了，今天只有材质</p>
+</div>
+<div id="world" style="border: 2px solid #f56c6c;width: 1276px; height: 716px; position: relative" >
+
+</div>
 <script type="text/javascript" src="../../js/three.js"></script>
 <script>
     var Colors = {
@@ -200,13 +206,15 @@
                     bevelSize: 8,
                     bevelSegments: 5
                 } );
-                let meshBasicMaterial = new THREE.MeshBasicMaterial({
-                    color: 0x989898,
-                });
+                let meshBasicMaterial =
+                    // new THREE.MeshBasicMaterial({
+                    //     color: 0x972121,
+                    // });
+                    new THREE.MeshNormalMaterial({flatShading: true});
                 var textMesh = new THREE.Mesh(textGeo, meshBasicMaterial)
-                textMesh.scale.set(.25,.25,.25);
+                textMesh.scale.set(.5,.5,.5);
                 textMesh.position.y = 50;
-                textMesh.rotateY(100)
+                textMesh.rotateY(120)
                 scene.add(textMesh)
             },
 
