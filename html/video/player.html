@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="referrer" content="no-referrer">
+    <title>播放器</title>
+    <style type="text/css">
+        html, body {width:100%;height:100%;margin:auto;overflow: hidden;}
+        body {display:flex;}
+        #mse {flex:auto;}
+    </style>
+    <script type="text/javascript">
+        window.addEventListener('resize',function(){document.getElementById('mse').style.height=window.innerHeight+'px';});
+    </script>
+</head>
+<body>
+<div id="mse"></div>
+<div id="rock"></div>
+<div>就想放这首歌视频加载慢，明天改成流媒体----5/24 1:09</div>
+<script src="../../js/xgplayer/index.js" charset="utf-8"></script>
+<script src="../../js/xgplayerflv/index.js" charset="utf-8"></script>
+<script type="text/javascript">
+    // let player = new window.FlvJsPlayer({
+    //     id: 'mse',
+    //     isLive: false,
+    //     playsinline: true,
+    //     url: '//sf1-cdn-tos.huoshanstatic.com/obj/media-fe/xgplayer_doc_video/flv/xgplayer-demo-360p.flv',
+    //     autoplay: true,
+    //     height: window.innerHeight,
+    //     width: window.innerWidth
+    // });
+    const player = new Player({
+        id: 'mse',
+        url: '../../music/rock.mp4',
+        height: 500,
+        width: 300
+    })
+    const player1 = new Player({
+        id: 'rock',
+        url: '../../music/rocker.mp4',
+        height: 500,
+        width: 300
+    })
+</script>
+</body>
+</html>
