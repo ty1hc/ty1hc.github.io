@@ -8,34 +8,35 @@
     <style type="text/css">
         html, body {width:100%;height:100%;margin:auto;overflow: hidden;}
         body {display:flex;}
-        #mse {flex:auto;}
+        /*#mse {flex:auto;}*/
     </style>
     <script type="text/javascript">
-        window.addEventListener('resize',function(){document.getElementById('mse').style.height=window.innerHeight+'px';});
+        // window.addEventListener('resize',function(){document.getElementById('mse').style.height=window.innerHeight+'px';});
     </script>
 </head>
 <body>
 <div id="mse"></div>
 <div id="rock"></div>
-<div>就想放这首歌视频加载慢，明天改成流媒体----5/24 1:09</div>
-<script src="../../js/xgplayer/index.js" charset="utf-8"></script>
-<script src="../../js/xgplayerflv/index.js" charset="utf-8"></script>
+<div>
+    <div>就想放这首歌 视频加载慢，明天改成流媒体 ----5/24 1:09</div>
+    <div>了解了一下，视频播放器插件已经对mp4做了优化，没有改成流式</div>
+</div>
+<script src="//cdn.jsdelivr.net/npm/xgplayer@2.9.6/browser/index.js" charset="utf-8"></script>
+<script src="//cdn.jsdelivr.net/npm/xgplayer-flv/dist/index.min.js" charset="utf-8"></script>
 <script type="text/javascript">
-    // let player = new window.FlvJsPlayer({
-    //     id: 'mse',
-    //     isLive: false,
-    //     playsinline: true,
-    //     url: '//sf1-cdn-tos.huoshanstatic.com/obj/media-fe/xgplayer_doc_video/flv/xgplayer-demo-360p.flv',
-    //     autoplay: true,
-    //     height: window.innerHeight,
-    //     width: window.innerWidth
-    // });
     const player = new Player({
         id: 'mse',
         url: '../../music/rock.mp4',
         height: 500,
         width: 300
     })
+    // let player = new FlvPlayer({
+    //     id: 'mse',
+    //     url: '../../music/rock.flv',
+    //     playsinline: true,
+    //     height: 500,
+    //     width: 300
+    // });
     const player1 = new Player({
         id: 'rock',
         url: '../../music/rocker.mp4',

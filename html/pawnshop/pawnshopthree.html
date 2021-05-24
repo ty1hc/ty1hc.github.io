@@ -59,8 +59,10 @@
 
         // var vConsole = new VConsole();
     }
-    var scene, camera, fieldOfView, aspectRatio, nearPlane,
+
+    let scene, camera, fieldOfView, aspectRatio, nearPlane,
         farPlane, HEIGHT, WIDTH, renderer, container;
+
     function createScene() {
         // 获得屏幕的宽和高，
         // 用它们设置相机的纵横比
@@ -174,15 +176,15 @@
         mesh = new THREE.Object3D();
 
         // 创建机翼
-        var geomSideWing = new THREE.BoxGeometry(400, 80, 10, 1, 1, 1);
-        var matSideWing = new THREE.MeshPhongMaterial({
+        const board = new THREE.BoxGeometry(400, 80, 10, 1, 1, 1);
+        const matBoard = new THREE.MeshPhongMaterial({
             color: "#c9b8a8",
             shading: THREE.FlatShading
         });
-        var sideWing = new THREE.Mesh(geomSideWing, matSideWing);
-        sideWing.castShadow = true;
-        sideWing.receiveShadow = true;
-        mesh.add(sideWing);
+        const boardObject = new THREE.Mesh(board, matBoard);
+        boardObject.castShadow = true;
+        boardObject.receiveShadow = true;
+        mesh.add(boardObject);
 
         mesh.scale.set(.25,.25,.25);
         mesh.position.y = 100;
@@ -190,7 +192,7 @@
     }
 
     function addFont() {
-        var loader = new THREE.FontLoader();
+        const loader = new THREE.FontLoader();
         let a32font;
         loader.load(
             // 资源URL
