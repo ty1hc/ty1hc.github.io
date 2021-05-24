@@ -13,6 +13,13 @@
     <script type="text/javascript">
         // window.addEventListener('resize',function(){document.getElementById('mse').style.height=window.innerHeight+'px';});
     </script>
+    <style>
+        @font-face {
+            font-style: normal;
+            font-family: a372;
+            src: url("../../css/A372.0.ttf");
+        }
+    </style>
 </head>
 <body>
 <div id="mse"></div>
@@ -21,25 +28,38 @@
     <div>就想放这首歌 视频加载慢，明天改成流媒体 ----5/24 1:09</div>
     <div>了解了一下，视频播放器插件已经对mp4做了优化，没有改成流式</div>
 </div>
+<!--<div style="border: #f56c6c solid 2px">-->
+<!--    <img id="img" src="">-->
+<!--</div>-->
+<!--<canvas id="canvas"></canvas>-->
 <script src="//cdn.jsdelivr.net/npm/xgplayer@2.9.6/browser/index.js" charset="utf-8"></script>
 <script src="//cdn.jsdelivr.net/npm/xgplayer-flv/dist/index.min.js" charset="utf-8"></script>
 <script type="text/javascript">
+    // let c = document.getElementById("canvas");
+    // const ctx = c.getContext("2d");
+    // ctx.fillColor = "#ff0000"
+    // ctx.fillStyle='#f00'
+    // ctx.strokeStyle = '#f00'
+    // ctx.font="a372";
+    // ctx.fillText("腾格尔",10,10);
+    // const url = canvas.toDataURL("image/png", 1);
+    // document.getElementById("img").setAttribute("src", url)
+    // console.log(url);
     const player = new Player({
         id: 'mse',
         url: '../../music/rock.mp4',
+        videoInit: true,
+        // poster: url,
         height: 500,
         width: 300
     })
-    // let player = new FlvPlayer({
-    //     id: 'mse',
-    //     url: '../../music/rock.flv',
-    //     playsinline: true,
-    //     height: 500,
-    //     width: 300
-    // });
+    // console.log(player.poster)
+    // player.poster = url
+
     const player1 = new Player({
         id: 'rock',
         url: '../../music/rocker.mp4',
+        videoInit: true,
         height: 500,
         width: 300
     })
