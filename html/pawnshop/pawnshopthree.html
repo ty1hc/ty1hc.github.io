@@ -24,30 +24,34 @@
 <img src="../../img/pawnshop/pawnshop.jpg">
 <!--<div style="font-family: a372;text-align: center;width: 1276px;">这里会有一个3D空间，实现·当铺·</div>-->
 <!--<div style="font-family: a372;text-align: center;width: 1276px;">有点烦，几何形状好像要一点一点地画。。。。。。。找找有没有更好的方法</div>-->
-    <div>
-        <div style="float: left; position: absolute;font-family: a372;text-align: left;word-break: break-all; width: 400px; padding-left: 5px">
-            <p>有点细致，几何形状好像要一点一点地画。。。。。找找有没有更好的方法</p>
-            <p>忙!今天只有材质</p>
-            <p>参考别人：抖音礼物特效是平面的官方用AE，抖音视频特效肯定不开源
-                <br>腾讯企鹅直播的礼物特效是3d，正在疯狂偷。。。</p>
-        </div>
-        <div id="world" style="border: 2px solid #f56c6c;width: 1276px; height: 716px; position: relative" >
+<div>
+    <div style="float: left; position: absolute;font-family: a372,serif;text-align: left;word-break: break-all; width: 400px; padding-left: 5px">
+        <p>有点细致，几何形状好像要一点一点地画。。。。。找找有没有更好的方法</p>
+        <p>忙!今天只有材质</p>
+        <p>参考别人：抖音礼物特效是平面的官方用AE，抖音视频特效肯定不开源
+            <br>腾讯企鹅直播的礼物特效是3d，正在疯狂偷。。。</p>
     </div>
-    <div style="border: 2px solid #21a3d7; width: 1276px; height: 716px">
-        <p>上面threeJs只能画出简单常用几何图形，或者加载其他软件导出的三维模型</p>
+    <div id="world" style="border: 2px solid #f56c6c;width: 1276px; height: 716px; position: relative"></div>
+    <div style="font-family: a372; border: 2.5px solid #21a3d7; width: 1275px; height: 715px">
+        <p>上面threeJs只能画出简单常用几何图形，或者加载其他软件导出的三维模型。(虽然最下边的飞机也是threeJs做的)</p>
         <p>这里开辟新空间，使用Webgl+openGl，用着色器绘制复杂三维模型</p>
     </div>
-
+    <img src="../../img/pawnshop/53306648_1.jpg">
+    <div>
+        <p>了解到MatCap技术（翻译成材质捕捉？），基本原理：先设定好一个球，就是上面正方形内切的球，因为半个球包含你能看到的所有角度，这样就确定了每个角度的颜色。渲染器渲染图形的时候，计算当前像素点的角度，然后根据一定的算法到设定好的球里找相同角度的像素，取颜色值.</p>
+        <p>道理很简单，但是没什么用，我被卡在上一步了，，就是把openGl放在wenGl里，没静下来看进去</p>
+        <p>六月前画出来？</p>
+    </div>
 </div>
 <script type="text/javascript" src="../../js/three.js"></script>
 <script>
-    var Colors = {
-        red:0xf25346,
-        white:0xd8d0d1,
-        brown:0x59332e,
-        pink:0xF5986E,
-        brownDark:0x23190f,
-        blue:0x68c3c0
+    const Colors = {
+        red: 0xf25346,
+        white: 0xd8d0d1,
+        brown: 0x59332e,
+        pink: 0xF5986E,
+        brownDark: 0x23190f,
+        blue: 0x68c3c0
     };
     window.addEventListener('load', init, false);
     function init() {
@@ -179,10 +183,7 @@
 
     let mesh;
     function addShopBuilding() {
-
-
         mesh = new THREE.Object3D();
-
         // 创建机翼
         const board = new THREE.BoxGeometry(400, 80, 10, 1, 1, 1);
         const matBoard = new THREE.MeshPhongMaterial({
@@ -211,7 +212,7 @@
                 // do something with the font
                 // scene.add( font );
                 a32font = font;
-                var textGeo = new THREE.TextGeometry( '雨汐镇·当铺', {
+                const textGeo = new THREE.TextGeometry('雨汐镇·当铺', {
                     font: font,
                     size: 100,
                     height: 5,
@@ -220,13 +221,13 @@
                     bevelThickness: 10,
                     bevelSize: 8,
                     bevelSegments: 5
-                } );
+                });
                 let meshBasicMaterial =
                     // new THREE.MeshBasicMaterial({
                     //     color: 0x972121,
                     // });
                     new THREE.MeshNormalMaterial({flatShading: true});
-                var textMesh = new THREE.Mesh(textGeo, meshBasicMaterial)
+                const textMesh = new THREE.Mesh(textGeo, meshBasicMaterial);
                 textMesh.scale.set(.5,.5,.5);
                 textMesh.position.y = 50;
                 textMesh.rotateY(120)
@@ -250,12 +251,12 @@
         // 这里我把接收到的鼠标位置的值转换成归一化值，在-1与1之间变化
         // 这是x轴的公式:
 
-        var tx = -1 + (event.clientX / WIDTH)*2;
+        const tx = -1 + (event.clientX / WIDTH) * 2;
 
         // 对于 y 轴，我们需要一个逆公式
         // 因为 2D 的 y 轴与 3D 的 y 轴方向相反
 
-        var ty = 1 - (event.clientY / HEIGHT)*2;
+        const ty = 1 - (event.clientY / HEIGHT) * 2;
         mousePos = {x:tx, y:ty};
     }
 
