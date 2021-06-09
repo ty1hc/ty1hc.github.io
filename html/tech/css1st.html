@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <p class="ellipsis-line multi-line">前言：项目中我们经常遇到这种需求，需要对单行、多行文本超出显示为省略号。这篇文章主要总结了小编解决此问题的方法，有不足之处欢迎大家指正。</p>-->
+    <div class="container">
+        <div class="pic"></div>
+        <div class="text">IMAGE</div>
+    </div>
+    <h4>滤镜</h4>
+    <div class="filter">
+        <div>
+            <img src="wind.png">
+            <p>原图</p>
+        </div>
+        <div>
+            <img style="filter: grayscale(50%)" src="wind.png">
+            <p>灰度</p>
+        </div>
+        <div>
+            <img style="filter: invert(10)" src="wind.png">
+            <p>反转</p>
+        </div>
+        <div>
+            <img style="filter: brightness(10)" src="wind.png">
+            <p>亮度</p>
+        </div>
+        <div>
+            <img style="filter: contrast(10)" src="wind.png">
+            <p>对比度</p>
+        </div>
+        <div>
+            <img style="filter: saturate(10)" src="wind.png">
+            <p>饱和度</p>
+        </div>
+        <div>
+            <img style="filter: sepia(50%)" src="wind.png">
+            <p>深褐色</p>
+        </div>
+        <div>
+            <img style="filter: blur(2px)" src="wind.png">
+            <p>高斯模糊</p>
+        </div>
+        <div>
+            <img style="filter: opacity(50%)" src="wind.png">
+            <p>透明度</p>
+        </div>
+        <div>
+<!--        <img style="filter: hue-rotate()" src="wind.png">-->
+            <img style="filter: drop-shadow(2px 2px 5px #ffaaff)" src="wind.png">
+            <p>阴影</p>
+        </div>
+        <div>
+            <img width="129" height="129" src="sniff.png">
+            <p>原图</p>
+        </div>
+        <div>
+            <img width="129" height="129" style="filter: drop-shadow(2px 2px 5px #1832ba)" src="sniff.png">
+            <p>阴影</p>
+        </div>
+        <div>
+            <img style="filter: hue-rotate(180deg)" src="wind.png">
+            <p>色像旋转？？和色环有关？</p>
+        </div>
+
+    </div>
+</body>
+<style>
+    .ellipsis-line {
+        /*border: 1px solid #f70505;*/
+        /*padding: 8px;*/
+        /*width: 400px;*/
+        /*overflow: hidden;*/
+        /*text-overflow: ellipsis;!*文本溢出显示省略号*!*/
+        /*white-space: nowrap; !*不换行*!*/
+    }
+    .multi-line {
+        border: 1px solid #f70505;
+        width: 400px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .container {
+        width: 267px;
+        height: 129px;
+    }
+    .pic {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: url("wind.png") no-repeat;
+        background-size: cover;
+    }
+    .text{
+        position: absolute;
+        top: 0px;
+        font-size: 77px;
+        font-weight: bold;
+        width: 267px;
+        height: 129px;
+        color: #000;
+        mix-blend-mode: lighten;
+        background-color: #fff;
+    }
+    .filter div{
+        float: left;
+    }
+    .filter p{
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+</style>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/anicollection.css">
+</head>
+<body>
+
+<!-- The example -->
+<div class="container center">
+    <div class="tab-bar demo">
+        <h2 class="tab">Dribbble</h2>
+        <p><i class="fa fa-dribbble tada animated"></i></p>
+        <h2 class="tab active">Behance</h2>
+        <p><i class="fa fa-behance bounce animated"></i></p>
+        <h2 class="tab">Pinterest</h2>
+        <p><i class="fa fa-pinterest rollIn animated"></i></p>
+
+        <!-- The AniJS definition -->
+        <input type="hidden"
+               data-anijs="if: mouseover, on: .tab, do: $removeClass active, to: .tab.active;
+                       if: mouseover, on: .tab, do: $addClass active, to: target"
+        >
+        <!-- end AniJS definition -->
+    </div>
+</div>
+<!-- End example -->
+
+<script src="../../js/anijs-min.js"></script>
+<script src="../../js/anijs-helper-dom.js"></script>
+</body>
+</html>
