@@ -14,43 +14,20 @@
 <div id="hardly" class="hidden"><p>活着可太难了，o(╥﹏╥)oo(╥﹏╥)oo(╥﹏╥)o</p></div>
     <script>
         let num = 0;
-        document.addEventListener("click" ,function f() {
-
-            document.getElementById("stop").setAttribute("class","hidden")
-            document.getElementById("cant").setAttribute("class","hidden")
-            document.getElementById("tired").setAttribute("class","hidden")
-            document.getElementById("blank").setAttribute("class","hidden")
-            document.getElementById("wrong").setAttribute("class","hidden")
-            document.getElementById("final").setAttribute("class","hidden")
-            document.getElementById("hardly").setAttribute("class","hidden")
-
-            if(num === 4){
-                document.getElementById("stop").setAttribute("class","visible")
-            }
-            if(num === 5){
-                document.getElementById("cant").setAttribute("class","visible")
-            }
-            if(num === 6){
-                document.getElementById("tired").setAttribute("class","visible")
-            }
-            if(num === 7){
-                document.getElementById("blank").setAttribute("class","visible")
-            }
-            if(num === 8){
-                document.getElementById("wrong").setAttribute("class","visible")
-            }
-            if(num === 9){
-                document.getElementById("final").setAttribute("class","visible")
-            }
-            if(num === 10){
-                document.getElementById("hardly").setAttribute("class","visible")
-            }
-            if(num === 11){
-                num = 0;
-            }
-
-            num ++;
-        })
+        // document.addEventListener("click" ,function f() {
+        //
+        //     document.getElementById("stop").setAttribute("class", num === 4?"visible":"hidden")
+        //     document.getElementById("cant").setAttribute("class", num === 5?"visible":"hidden")
+        //     document.getElementById("tired").setAttribute("class", num === 6?"visible":"hidden")
+        //     document.getElementById("blank").setAttribute("class", num === 7?"visible":"hidden")
+        //     document.getElementById("wrong").setAttribute("class", num === 8?"visible":"hidden")
+        //     document.getElementById("final").setAttribute("class", num === 9?"visible":"hidden")
+        //     document.getElementById("hardly").setAttribute("class", num === 10?"visible":"hidden")
+        //
+        //     if(num === 11) num = 0;
+        //
+        //     num ++;
+        // })
     </script>
 </body>
 <style>
