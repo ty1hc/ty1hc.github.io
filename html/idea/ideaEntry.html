@@ -3,34 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <div id="stop" class="hidden"><p>断更了</p></div>
-    <div id="more" class="hidden"><p>还有更重要的事</p></div>
-    <div id="wrong" class="hidden"><p>跑偏了，花里胡哨的</p></div>
-    <div id="final" class="hidden"><p>去高效搬砖了，毕竟活着很难</p></div>
 </head>
 <body>
+<div id="stop" class="hidden"><p>断更了</p></div>
+<div id="cant" class="hidden"><p>更不动了，</p></div>
+<div id="tired" class="hidden"><p>对着空井喊可太累了，明明井里并没有人</p></div>
+<div id="blank" class="hidden"><p></p></div>
+<div id="wrong" class="hidden"><p>跑偏了，花里胡哨的</p></div>
+<div id="final" class="hidden"><p>去高效搬砖，准备遇到下一个想养活的人</p></div>
+<div id="hardly" class="hidden"><p>活着可太难了，o(╥﹏╥)oo(╥﹏╥)oo(╥﹏╥)o</p></div>
     <script>
-        var num = 0
+        let num = 0;
         document.addEventListener("click" ,function f() {
 
             document.getElementById("stop").setAttribute("class","hidden")
-            document.getElementById("more").setAttribute("class","hidden")
+            document.getElementById("cant").setAttribute("class","hidden")
+            document.getElementById("tired").setAttribute("class","hidden")
+            document.getElementById("blank").setAttribute("class","hidden")
             document.getElementById("wrong").setAttribute("class","hidden")
             document.getElementById("final").setAttribute("class","hidden")
+            document.getElementById("hardly").setAttribute("class","hidden")
 
             if(num === 4){
                 document.getElementById("stop").setAttribute("class","visible")
             }
             if(num === 5){
-                document.getElementById("more").setAttribute("class","visible")
+                document.getElementById("cant").setAttribute("class","visible")
             }
             if(num === 6){
-                document.getElementById("wrong").setAttribute("class","visible")
+                document.getElementById("tired").setAttribute("class","visible")
             }
             if(num === 7){
-                document.getElementById("final").setAttribute("class","visible")
+                document.getElementById("blank").setAttribute("class","visible")
             }
             if(num === 8){
+                document.getElementById("wrong").setAttribute("class","visible")
+            }
+            if(num === 9){
+                document.getElementById("final").setAttribute("class","visible")
+            }
+            if(num === 10){
+                document.getElementById("hardly").setAttribute("class","visible")
+            }
+            if(num === 11){
                 num = 0;
             }
 
@@ -43,7 +58,18 @@
         visibility: hidden;
     }
     .visible{
+        display: inline-flex;
         visibility: visible;
+    }
+
+    p{
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 18px;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(45deg, #55402b, #b34bbf, #2a666a);
+        text-underline: yellow;
     }
 </style>
 </html>
