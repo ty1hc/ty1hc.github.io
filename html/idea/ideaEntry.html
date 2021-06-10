@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <div id="stop" class="hidden"><p>断更了</p></div>
+    <div id="more" class="hidden"><p>还有更重要的事</p></div>
+    <div id="wrong" class="hidden"><p>跑偏了，花里胡哨的</p></div>
+    <div id="final" class="hidden"><p>去高效搬砖了，毕竟活着很难</p></div>
 </head>
 <body>
+    <script>
+        var num = 0
+        document.addEventListener("click" ,function f() {
 
+            document.getElementById("stop").setAttribute("class","hidden")
+            document.getElementById("more").setAttribute("class","hidden")
+            document.getElementById("wrong").setAttribute("class","hidden")
+            document.getElementById("final").setAttribute("class","hidden")
+
+            if(num === 4){
+                document.getElementById("stop").setAttribute("class","visible")
+            }
+            if(num === 5){
+                document.getElementById("more").setAttribute("class","visible")
+            }
+            if(num === 6){
+                document.getElementById("wrong").setAttribute("class","visible")
+            }
+            if(num === 7){
+                document.getElementById("final").setAttribute("class","visible")
+            }
+            if(num === 8){
+                num = 0;
+            }
+
+            num ++;
+        })
+    </script>
 </body>
+<style>
+    .hidden{
+        visibility: hidden;
+    }
+    .visible{
+        visibility: visible;
+    }
+</style>
 </html>
