@@ -12,5 +12,41 @@
     <img src="c.png">
     <img src="d.png">
 </div>
+<span onclick="showVideo1()">动效1</span>
+<span onclick="showVideo2()">动效2</span>
+<div style="position: relative">
+    <div id="pop1" class="hide" onclick="hideVideo1()" style="position: absolute">
+        <video src="push.mp4" muted autoplay="autoplay" loop></video>
+    </div>
+    <div id="pop2" class="hide" onclick="hideVideo2()" style="position: absolute">
+        <video src="pull.mp4" muted autoplay="autoplay" loop></video>
+    </div>
+</div>
+
+<script>
+    function showVideo1() {
+        hideVideo2()
+        document.getElementById('pop1').setAttribute("class","pop")
+    }
+    function hideVideo1() {
+        document.getElementById('pop1').setAttribute("class","hide")
+    }
+    function showVideo2() {
+        hideVideo1()
+        document.getElementById('pop2').setAttribute("class","pop")
+    }
+    function hideVideo2() {
+        document.getElementById('pop2').setAttribute("class","hide")
+    }
+</script>
+
 </body>
+<style>
+    .pop{
+        visibility: visible;
+    }
+    .hide{
+        visibility: hidden;
+    }
+</style>
 </html>
