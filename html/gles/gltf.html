@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="main()">
+    <div><input type="file" id="domFile" multiple></div>
+    <div>
+        <canvas id="webgl" width="600" height="600"></canvas>
+    </div>
+<script>
+    let domFile = document.getElementById('domFile');
+
+    domFile.addEventListener("change", function (event) {
+        let reader = new FileReader();
+        reader.onload = function () {
+            if(reader.result) {
+                let gltfObj = JSON.parse(reader.result);
+                for (let lengthKey in reader.result.length) {
+
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
