@@ -14,6 +14,22 @@
 			a {
 				color: #2983ff;
 			}
+
+			title {
+				position: absolute;
+				top: 0px;
+				width: 40%;
+				/*right: 0;*/
+				padding: 10px;
+				box-sizing: border-box;
+				text-align: center;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				pointer-events: none;
+				z-index: 1;
+			}
 		</style>
 	</head>
 
@@ -21,10 +37,11 @@
 
 		<div id="container"></div>
 
-		<div id="info">
-			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> webgl - animation - keyframes<br/>
-			Model: <a href="https://www.artstation.com/artwork/1AGwX" target="_blank" rel="noopener">Littlest Tokyo</a> by
-			<a href="https://www.artstation.com/glenatron" target="_blank" rel="noopener">Glen Fox</a>, CC Attribution.
+		<div id="info" style="width: 60%; right: 0">
+<!--			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> webgl - animation - keyframes<br/>-->
+<!--			Model: <a href="https://www.artstation.com/artwork/1AGwX" target="_blank" rel="noopener">Littlest Tokyo</a> by-->
+<!--			<a href="https://www.artstation.com/glenatron" target="_blank" rel="noopener">Glen Fox</a>, CC Attribution.-->
+			<p style="color: #2f4056; font-weight: bold; font-size: larger">《东京的最小形态》</p>
 		</div>
 
 		<script type="module">
@@ -69,11 +86,11 @@
 			controls.enableDamping = true;
 
 			const dracoLoader = new DRACOLoader();
-			dracoLoader.setDecoderPath( '../../asset/jsm/gltf/gltf/' );
+			dracoLoader.setDecoderPath( '../../assets/jsm/gltf/gltf/' );
 
 			const loader = new GLTFLoader();
 			loader.setDRACOLoader( dracoLoader );
-			loader.load( '../../asset/jsm/gltf/LittlestTokyo.glb', function ( gltf ) {
+			loader.load( '../../assets/jsm/gltf/LittlestTokyo.glb', function ( gltf ) {
 
 				const model = gltf.scene;
 				model.position.set( 1, 1, 0 );
