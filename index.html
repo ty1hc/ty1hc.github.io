@@ -8,13 +8,12 @@
     <div>
         <iframe src="html/threeJs/airplane.html" style="border-width: 0;width: 100%;height: 736px; z-index: 1; overflow-x: hidden"></iframe>
     </div>
-    <div style="position: absolute; width: 100%; height: 736px; z-index: 2; top: 0; padding-top: 60px">
+    <div class="button-layer">
         <div><a href="html/pawnshop/pawnshopthree.html">3D</a></div>
         <div><a href="html/tech/css1st.html">css</a></div>
         <div><a href="html/idea/ideaEntry.html">output</a></div>
         <div></div>
-        <div style="display: inline-flex"><a href="index1.html">老版入口</a></div>
-
+        <div style="display: inline-flex"><a href="index1.html">杂物间</a></div>
     </div>
 <link rel="prefetch" href="assets/jsm/gltf/LittlestTokyo.glb">
 </body>
@@ -46,6 +45,18 @@
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(45deg, #55402b, #b34bbf, #2a666a);
         text-underline: yellow;
+    }
+
+    .button-layer{
+        display: flex;
+        position: absolute;
+        left: 50%;
+        top: 300px;
+        z-index: 2;
+        margin-left: -415px;
+    }
+    .button-layer>div{
+
     }
 </style>
 <script src="html/headerAndFooter/footer.js"></script>
