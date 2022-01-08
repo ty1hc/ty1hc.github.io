@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="js/ol.css">
+<!--    <script src="js/ol-debug.js"></script>-->
+    <script src="./jquery-3.6.0.min.js"></script>
+<!--    <script src="lib/bootstrap/js/bootstrap.js"></script>-->
+<!--    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.6.1/build/ol.js"></script>
+    <style>
+        .pop {
+            width: 70px;
+            height: 20px;
+            /*            border: 1px solid #088;
+                        border-radius: 10px;*/
+            background-color: #0FF;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div class="pop" style="display: none;">123</div>
+<div id="map" style="width: 100%">
+    <div style="position: absolute;left: 100px; z-index: 10">
+        <button id="bt_print" >打印</button>
+    </div>
+</div>
+<script>
+    var webip="http://localhost:";
+    var gisip="http://localhost:";
+    var webport="8080/";
+    var gisport="8080/";
+    /*********************************************************地图初始化**********************************************************/
+    /*底图初始化*/
+    var format = 'image/png';
+    //view
+    var view=new ol.View({
+        // 设置成都为地图中心
+        center: ol.proj.transform([508881,299705],"EPSG:3857","EPSG:3857"),
+        zoom: 18
+    });
+    //var osm=new ol.layer.Tile({source: new ol.source.OSM()});
+    var tilePolyline = new ol.layer.Tile({
+        //visible: false,
+        source: new ol.source.TileWMS({
+            url: 'http://localhost:8080/geoserver/whuxcy/wms',
+            params: {'FORMAT': format,
+                'VERSION': '1.1.1',
+                tiled: true,
+                "STYLES": '',
+                "LAYERS": 'whuxcy:polyline'
+                //"exceptions": 'application/vnd.ogc.se_inimage',
+                //tilesOrigin: 8176078.237520734 + "," + 704818.0275364731
+            },
+            crossOrigin: 'anonymous'
+        })
+    });
+    /*矢量图层初始化*/
+
+    var polygonTypename="xcy:pgpolygon";
+    var polygonVectorSource = new ol.source.Vector({
+        features:[]
+    });
+    var polygonVectorLayer = new ol.layer.Vector({
+        title:"面",
+        source: polygonVectorSource,
+        style: styleFunction,
+        renderMode:'image'
+    });
+
+    setTimeout(showHeight,2000);
+    function showHeight() {
+        $.ajax({
+            type: "GET",
+            url: gisip+gisport+'geoserver/xcy/wfs?service=WFS&request=GetFeature&typeName='+polygonTypename+'&outputFormat=application%2Fjson',
+            dataType:'json',
+            success: function(data){
+                var features=data.features;
+                for(var i=0;i<features.length;i++)
+                {
+                    var feature=features[i];
+                    var ft=new ol.Feature({
+                        geometry:new ol.geom.MultiPolygon(feature.geometry.coordinates),
+                        //attr:feature
+                    });
+                    ft.setId(feature.id);
+                    ft.attr=feature;
+                    var geometry=ft.getGeometry();
+                    polygonVectorSource.addFeature(ft);
+                }
+            }
+
+        });
+    }
+    var fill = new ol.style.Fill({
+        color: '#dd942e'
+    });
+    var stroke = new ol.style.Stroke({
+        color: '#cc1000',
+        width: 1.25
+    });
+    function styleFunction(feature) {
+
+        return new ol.style.Style({
+            fill:fill,
+            stroke:stroke,
+            image:new ol.style.Circle({
+                radius: 5,
+                fill: new ol.style.Fill({
+                    color: "#389BCD",
+                    opacity: 0.5
+                })
+            })
+        });
+    }
+    // map
+    var map = new ol.Map({
+        layers: [
+            tilePolyline,
+            polygonVectorLayer
+        ],
+        view:view,
+        target: 'map',
+        renderer:"canvas"
+    });
+    function  st(feature,isSelect) {
+        return  new ol.style.Style({
+            fill: fill,
+            stroke: new ol.style.Stroke({
+                color: '#319FD3',
+                width: 1
+            }),
+            image:new ol.style.RegularShape({
+                fill: fill,
+                stroke: stroke,
+                points: 3,
+                radius: 10,
+                //rotation: Math.PI / 4,
+                angle: 0
+            })
+        });
+    }
+
+    /*********************************************************控件初始化**********************************************************/
+    //添加
+    $("#bt_print").click(function (e) {
+        map.once('postcompose', function (event) {
+            var canvas = event.context.canvas;
+            if (navigator.msSaveBlob) {
+                navigator.msSaveBlob(canvas.msToBlob(), 'map.png');
+            } else {
+                canvas.toBlob(function (blob) {
+                    saveAs(blob, 'map.png');
+                });
+            }
+        });
+        map.renderSync();
+    });
+
+
+</script>
+</body>
+</html>
