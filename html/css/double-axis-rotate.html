@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="revolution">
+        <div class="rotation">
+            <img src="/assets/img/lbxx.jpeg">
+        </div>
+        <div class="center"></div>
+    </div>
+</div>
+</body>
+<style>
+    .container{
+        padding-top:210px
+    }
+    .revolution{
+        width: 500px;
+        background: black;
+        transform: rotate3d(0.9, 0, 0, 30deg);
+        animation: rotate 3s linear infinite;
+    }
+    .rotation{
+        width: 90px;
+        /*background: lime;*/
+        animation: rotate2 3s linear infinite;
+    }
+    .center{
+        width: 20px;
+        height: 360px;
+        background: blue;
+        position: absolute;
+        margin-top: -210px;
+        margin-left: 240px;
+        animation: rotate1 3s linear infinite;
+    }
+    img{
+        width: 80px;
+    }
+    @keyframes rotate {
+        0%{
+            transform: rotate3d(0, 0, 0, 0deg);
+            transform-style: preserve-3d;
+        }
+        100%{
+            transform: rotate3d(0, 1, 0,360deg);
+            transform-style: preserve-3d;
+        }
+    }
+    @keyframes rotate1 {
+        0%{
+            transform: rotate3d(0, 0, 0.6, 0deg);
+            transform-style: preserve-3d;
+        }
+        100%{
+            transform: rotate3d(0.6, 0.9, 0.6, 360deg);
+            transform-style: preserve-3d;
+        }
+    }
+    @keyframes rotate2 {
+        0%{
+            transform: rotate3d(0,1,0,90deg);
+            transform-style: preserve-3d;
+        }
+        100%{
+            transform: rotate3d(0,1,0,90deg);
+            transform-style: preserve-3d;
+        }
+    }
+</style>
+</html>
