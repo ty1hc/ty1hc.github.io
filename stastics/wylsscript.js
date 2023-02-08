@@ -7,7 +7,8 @@
 // @match        https://www.baidu.com/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=ttlsa.com
 // @grant GM_log
-// @updateurl    https://github.com/ty1hc/tampermonkeyscript/edit/main/wylsscript.js
+// @updateURL    https://github.com/ty1hc/tampermonkeyscript/edit/main/wylsscript.js
+// @downloadURL  https://github.com/ty1hc/tampermonkeyscript/edit/main/wylsscript.js
 // ==/UserScript==
 
 (function() {
