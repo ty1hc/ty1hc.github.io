@@ -7,8 +7,8 @@
 // @match        https://github.com/ty1hc/tampermonkeyscript/blob/main/wylsscript.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant        none
-// @updateURL    https://github.com/ty1hc/tampermonkeyscript/edit/main/wylsscript.js
-// @downloadURL  https://github.com/ty1hc/tampermonkeyscript/edit/main/wylsscript.js
+// @updateURL    https://ty1hc.github.io/stastics/wylsscript.js
+// @downloadURL  https://ty1hc.github.io/stastics/wylsscript.js
 // ==/UserScript==
 
 (function() {
